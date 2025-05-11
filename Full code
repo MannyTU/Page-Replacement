@@ -23,7 +23,7 @@ void fifo(int pages[], int n, int frameSize) {
 
     printf("\nFIFO Simulation\n");
     for (int i = 0; i < n; i++) {
-        printf("Step %2d -> [", i + 1);
+        printf("Step %2d: Page %2d -> [", i + 1, pages[i]);
 
 
         if (!isInFrame(frame, frameSize, pages[i])) {
@@ -94,8 +94,7 @@ void lru(int pages[], int n, int framesCount) {
             pageFaults++;
         }
 
-        printf("Step %2d -> [", i + 1);
-
+        printf("Step %2d: Page %2d -> [", i + 1, pages[i]);
         for (int j = 0; j < framesCount; ++j) {
             if (frames[j] == EMPTY_FRAME) printf(" -");
             else printf("%2d", frames[j]);
@@ -165,7 +164,7 @@ void optimal(int pages[], int n, int framesCount) {
             pageFaults++;
         }
 
-        printf("Step %2d -> [", i + 1);
+        printf("Step %2d: Page %2d -> [", i + 1, pages[i]);
         for (int j = 0; j < framesCount; ++j) {
             if (frames[j] == EMPTY_FRAME) printf(" -");
             else printf("%2d", frames[j]);
